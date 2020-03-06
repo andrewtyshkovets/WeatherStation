@@ -9,23 +9,9 @@ import java.net.URLConnection;
 public class WebSiteWeather {
     private static final String API_KEY = "73b1285ea341bfaf126e0a52d93574c2";
     private static final String API_REQUEST = "http://api.openweathermap.org/data/2.5/weather?q=";
-    private static final String API_REQUEST_FORECAST = "http://api.openweathermap.org/data/2.5/forecast/hourly?q=";
 
     public String getCurrentWeather(String city) throws IOException {
         String website = API_REQUEST + city + "&APPID=" + API_KEY;
-        URL url = new URL(website);
-        URLConnection connection = url.openConnection();
-        BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-        StringBuilder sb = new StringBuilder();
-        String text;
-        while ((text = br.readLine()) != null)
-            sb.append(text);
-        br.close();
-        return sb.toString();
-    }
-
-    public String getForecast(String city) throws IOException {
-        String website = API_REQUEST_FORECAST + city + "&APPID=" + "b379979de4148dddc3ebedf547909ca6";
         URL url = new URL(website);
         URLConnection connection = url.openConnection();
         BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
